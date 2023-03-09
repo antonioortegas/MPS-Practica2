@@ -3,7 +3,29 @@ package org.example;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+/*
+    TESTS:
+    1- List is empty
+        1.1 - Size is 0
+        1.2 - First and last nodes should be null
+        1.3 - Prepend adds the first node
+        1.4 - Append adds the first node
+        1.5 - First element can't be deleted
+        1.6 - Last element can't be deleted
+    2- List is not empty
+        2.1 - Prepend adds another node
+        2.2 - Append adds another node
+        2.3 - Delete the first and only element if list only has one node
+        2.4 - Delete the last and only element if list only has one node
+        2.5 - Delete the last and element if list has more than one node
+        2.6 - Delete the last and element if list has more than one node
 
+ */
+
+/**
+ * @author Antonio Ortega Santaolalla
+ * @author Ignacio Jose Garcia Garcia
+ */
 class DoublyLinkedListDequeTest {
 
     private DoublyLinkedListDeque<Integer> deque;
