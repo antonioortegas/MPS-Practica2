@@ -27,6 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Antonio Ortega Santaolalla
  * @author Teodoro Hidalgo Guerrero
+ * @author Ignacio Jose Garcia Garcia
  */
 class DequeNodeTest {
 
