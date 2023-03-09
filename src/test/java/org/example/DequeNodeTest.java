@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
         1.2 - Node is first node
         1.3 - Node is last node
         1.4 - Node returns the changed item value
-        1.5 - Node is terminal (No previos nor next node)
+        1.5 - Node is terminal (No previous nor next node)
         2- Node with next or previous node
             2.1 - Node with next Node returns next node (Getter)
             2.2 - Node with previous Node returns previous node (Getter)
@@ -47,25 +47,29 @@ class DequeNodeTest {
     class EmptyNode {
 
         @Test
+        @DisplayName("getItem returns the node's item")
         void checkNodeReturnsSameItem() {
             assertEquals("test", node.getItem());
         }
 
         @Test
+        @DisplayName("getItem returns the correct value after a change")
+        void checkNodeRefreshItemValue() {
+            node.setItem("changedItemValue");
+
+            assertEquals("changedItemValue", node.getItem());
+        }
+
+        @Test
+        @DisplayName("First returns true because it is the first node")
         void checkFirstNodeReturnsTrueIfFirst() {
             assertTrue(node.isFirstNode());
         }
 
         @Test
+        @DisplayName("Last returns true because it is the last node")
         void checkLastNodeReturnsTrueIfLast() {
             assertTrue(node.isLastNode());
-        }
-
-        @Test
-        void checkNodeRefreshItemValue() {
-            node.setItem("changedItemValue");
-
-            assertEquals("changedItemValue", node.getItem());
         }
 
         @Test
@@ -81,6 +85,7 @@ class DequeNodeTest {
         class NodeWithNeighbour {
 
             @Test
+            @DisplayName("getNext returns the next node if there is one")
             void checkNextNodeGetterReturnsNextNode() {
                 DequeNode<String> previousnode = new DequeNode<>("previous", null, node);
 
@@ -88,6 +93,7 @@ class DequeNodeTest {
             }
 
             @Test
+            @DisplayName("getPrevious returns the previous node if there is one")
             void checkPreviousNodeGetterReturnsPreviousNode() {
                 DequeNode<String> nextnode = new DequeNode<>("next", node, null);
 
@@ -95,6 +101,7 @@ class DequeNodeTest {
             }
 
             @Test
+            @DisplayName("node is not terminal if it has a next node")
             void checkTerminalIfHasNextNode() {
                 DequeNode<String> previousNode = new DequeNode<>("previous", null, node);
 
@@ -102,10 +109,19 @@ class DequeNodeTest {
             }
 
             @Test
+            @DisplayName("node is not terminal if it has a previous node")
             void checkTerminalIfHasPreviousNode() {
                 DequeNode<String> nextNode = new DequeNode<>("next", node, null);
 
                 assertFalse(nextNode.isNotATerminalNode());
+            }
+
+            @Test
+            @DisplayName("node is not terminal because it has both a previous and a next node")
+            void checkNotTerminalIfHasPreviousAndNextNode() {
+                DequeNode<String> nextNode = new DequeNode<>("middle", node, node);
+
+                assertTrue(nextNode.isNotATerminalNode());
             }
 
 
@@ -114,6 +130,7 @@ class DequeNodeTest {
             class FullNeighbourNode {
 
                 @Test
+                @DisplayName("next node is changed correctly after setNext")
                 void checkSetterChangesNextNode() {
                     DequeNode<String> newNode = new DequeNode<>("middle", node, node);
                     DequeNode<String> nextNode = new DequeNode<>("next", null, null);
@@ -127,6 +144,7 @@ class DequeNodeTest {
                 }
 
                 @Test
+                @DisplayName("previous node is changed correctly after setPrevious")
                 void checkSetterChangesPreviousNode() {
                     DequeNode<String> newNode = new DequeNode<>("middle", node, node);
                     DequeNode<String> previousNode = new DequeNode<>("previous", null, null);
@@ -139,12 +157,7 @@ class DequeNodeTest {
                     assertEquals(node, newNode.getNext());
                 }
 
-                @Test
-                void checkNotTerminalIfHasPreviousAndNextNode() {
-                    DequeNode<String> nextNode = new DequeNode<>("middle", node, node);
 
-                    assertTrue(nextNode.isNotATerminalNode());
-                }
 
             }
         }
