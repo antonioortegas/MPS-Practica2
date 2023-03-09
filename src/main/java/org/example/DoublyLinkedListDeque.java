@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Deque;
+
 public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     private DequeNode<T> first;
@@ -15,7 +17,9 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     @Override
     public void prepend(T value) {
         // TODO
-        DequeNode<T> currentNode = 
+        if ( first != null) {
+            
+        }
     }
 
     @Override
