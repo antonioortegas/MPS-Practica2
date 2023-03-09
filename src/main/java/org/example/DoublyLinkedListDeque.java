@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Deque;
-
 public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     private DequeNode<T> first;
@@ -9,49 +7,95 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     private int size;
 
     public DoublyLinkedListDeque() {
-        first = null;
+        size = 0;
         last = null;
         first = null;
     }
 
     @Override
     public void prepend(T value) {
-        // TODO
-        if ( first != null) {
-            
+        // TODO - TEST
+        DequeNode<T> newNode = new DequeNode<>(value, null, null);
+        if(first == null) {
+            last = newNode;
+        } else {
+            last.setNext(newNode);
+            first.setPrevious(newNode);
         }
+
+        newNode.setPrevious(last);
+        newNode.setNext(first);
+        first = newNode;
+        size++;
     }
 
     @Override
     public void append(T value) {
         // TODO
+        DequeNode<T> newNode = new DequeNode<>(value, null, null);
+        if(first == null) {
+            last = newNode;
+        } else {
+            last.setNext(newNode);
+            first.setPrevious(newNode);
+        }
+
+        newNode.setPrevious(last);
+        newNode.setNext(first);
+        last = newNode;
+        size++;
     }
 
     @Override
     public void deleteFirst() {
         // TODO
+        if(first == null)
+            return;
+
+        if(first == last) {
+            first = null;
+            last = null;
+        } else {
+            first.getNext().setPrevious(last);
+            first = first.getNext();
+            last.setNext(first);
+        }
+        size--;
     }
 
     @Override
     public void deleteLast() {
         // TODO
+        if(last == null)
+            return;
+
+        if(first == last) {
+            first = null;
+            last = null;
+        } else {
+            last.getPrevious().setNext(first);
+            last = last.getPrevious();
+            first.setPrevious(last);
+        }
+
+        size--;
     }
 
     @Override
     public T first() {
         // TODO
-        return null;
+        return first.getItem();
     }
 
     @Override
     public T last() {
         // TODO
-        return null;
+        return last.getItem();
     }
 
     @Override
     public int size() {
         // TODO
-        return 0;
+        return size;
     }
 }
