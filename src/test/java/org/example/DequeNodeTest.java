@@ -73,6 +73,7 @@ class DequeNodeTest {
         }
 
         @Test
+        @DisplayName("Terminal returns false")
         void checkTerminalIfHasntPreviousNorNextNode() {
             DequeNode<String> nextNode = new DequeNode<>("next", null, null);
 
