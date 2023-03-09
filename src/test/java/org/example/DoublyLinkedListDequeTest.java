@@ -78,13 +78,13 @@ class DoublyLinkedListDequeTest {
         }
 
         @Test
-        @DisplayName("can not delete the first element")
+        @DisplayName("Can not delete the first element")
         void DeleteFirstRisesAnExceptionWhenDequeIsEmpty() {
             assertThrows(DoubleEndedQueueException.class, () -> deque.deleteFirst());
         }
 
         @Test
-        @DisplayName("can not delete the last element")
+        @DisplayName("Can not delete the last element")
         void DeleteLastRisesAnExceptionWhenDequeIsEmpty() {
             assertThrows(DoubleEndedQueueException.class, () -> deque.deleteLast());
         }
@@ -101,6 +101,7 @@ class DoublyLinkedListDequeTest {
 
                 int previousSize = deque.size();
                 deque.prepend(5);
+
                 assertEquals(deque.first(), 5);
                 assertEquals(deque.last(), deque.last());
                 assertEquals(deque.size(), previousSize + 1);
@@ -115,13 +116,14 @@ class DoublyLinkedListDequeTest {
 
                 int previousSize = deque.size();
                 deque.append(5);
+
                 assertEquals(deque.first(), deque.first());
                 assertEquals(deque.last(), 5);
                 assertEquals(deque.size(), previousSize + 1);
             }
 
             @Test
-            @DisplayName("delete the first and only element")
+            @DisplayName("Delete the first and only element")
             void DeleteFirstDeletesTheFirstAndOnlyNodeWhenDequeIsNotEmptyAndHasOneNode() {
                 deque.append(1);
                 int previousSize = deque.size();
@@ -136,7 +138,7 @@ class DoublyLinkedListDequeTest {
             }
 
             @Test
-            @DisplayName("delete the last and only element")
+            @DisplayName("Delete the last and only element")
             void DeleteLastDeletesTheLastAndOnlyNodeWhenDequeIsNotEmptyAndHasOneNode() {
                 deque.append(1);
                 int previousSize = deque.size();
@@ -151,7 +153,7 @@ class DoublyLinkedListDequeTest {
             }
 
             @Test
-            @DisplayName("delete the first element")
+            @DisplayName("Delete the first element")
             void DeleteFirstDeletesTheFirstNodeWhenDequeIsNotEmptyAndHasMoreThanOneNode() {
                 deque.append(1);
                 deque.append(2);
@@ -167,7 +169,7 @@ class DoublyLinkedListDequeTest {
             }
 
             @Test
-            @DisplayName("delete the last element")
+            @DisplayName("Delete the last element")
             void DeleteLastDeletesTheLastNodeWhenDequeIsNotEmptyAndHasMoreThanOneNode() {
                 deque.append(1);
                 deque.append(2);
