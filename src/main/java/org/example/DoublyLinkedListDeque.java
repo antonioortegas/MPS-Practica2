@@ -50,7 +50,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public void deleteFirst() {
         // TODO
         if(first == null)
-            return;
+            throw new DoubleEndedQueueException("Queue is empty");
 
         if(first == last) {
             first = null;
@@ -67,7 +67,7 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     public void deleteLast() {
         // TODO
         if(last == null)
-            return;
+            throw new DoubleEndedQueueException("Queue is empty");
 
         if(first == last) {
             first = null;
@@ -84,12 +84,18 @@ public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
     @Override
     public T first() {
         // TODO
+        if(first == null)
+            throw new DoubleEndedQueueException("Queue is empty");
+
         return first.getItem();
     }
 
     @Override
     public T last() {
         // TODO
+        if(last == null)
+            throw new DoubleEndedQueueException("Queue is empty");
+
         return last.getItem();
     }
 
