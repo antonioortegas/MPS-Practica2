@@ -1,5 +1,9 @@
 package org.example;
 
+/**
+ * @author Teodoro Hidalgo Guerrero
+ * @param <T> - Generic type
+ */
 public class DoublyLinkedListDeque<T> implements DoubleEndedQueue<T> {
 
     private DequeNode<T> first;
