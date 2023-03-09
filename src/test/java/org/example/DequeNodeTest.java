@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class DequeNodeTest {
 
-    DequeNode<String> node;
+    private DequeNode<String> node;
 
     @BeforeEach
     void setUp() {
