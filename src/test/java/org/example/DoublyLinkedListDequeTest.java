@@ -42,7 +42,7 @@ class DoublyLinkedListDequeTest {
     }
 
     @Nested
-    @DisplayName("When de Queue is empty")
+    @DisplayName("When the Queue is empty")
     class EmptyDeque {
         @Test
         @DisplayName("Size should be 0")
